@@ -1,0 +1,15 @@
+import pandas as pd
+import os
+import glob
+
+path = "../data/AReM/*"
+ # csv files in the path
+file_path = glob.glob(path + "/*.csv") 
+# csv files in the path
+file=[]
+
+for file in file_path:
+    filelist = pd.read_csv(file)
+    df = pd.DataFrame(filelist)
+    df = df.rename(columns={df.columns[0]: 'time'})#renaming firms column in all datasets to 'time'
+    print(df)
